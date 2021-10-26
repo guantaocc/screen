@@ -1,28 +1,47 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <MessageList :message-list="messageList"></MessageList>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
+import MessageList from './components/MessageList.vue'
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    MessageList
+  },
+  data() {
+    return {
+      messageList: [
+        {
+          id: 1,
+          msg: ['wxid0102', 0, 0, '请问你是做什么的']
+        },
+        {
+          id: 2,
+          msg: ['wxid0102', 0, 10000, '系统消息']
+        }
+      ]
+    }
+  },
+  mounted() {
+
+  },
+  methods: {
+
   }
 }
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+.clearfix:after {
+  content: "\0020";
+  display: block;
+  height: 0;
+  clear: both;
+}
+.clearfix {
+  zoom: 1;
 }
 </style>
